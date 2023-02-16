@@ -1,0 +1,23 @@
+.nav {
+  padding: 1.5em 1.75em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  a {
+    font-weight: bold;
+  }
+
+  &__logo {
+    img {
+      width: 180px;
+      max-width: 100%;
+    }
+  }
+
+  &__item {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
