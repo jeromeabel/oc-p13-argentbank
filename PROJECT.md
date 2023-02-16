@@ -2,6 +2,7 @@
 
 ## Epic Tasks #1 - Users Authentication
 - [x] Fork
+- [ ] Setup client : vite, react-redux, rtk, sass
 - [ ] React App : home, connection, profile
 - [ ] Responsive
 - [ ] Features (Github Issues)
@@ -10,7 +11,6 @@
     - User can logout to the system
     - User can only see their own profile
     - User can update their profile
-
 
 ## Tasks #2 - Transactions
 - voir maquette page des transactions 
@@ -40,10 +40,15 @@ https://kentcdodds.com/blog/application-state-management-with-react
 https://dev.to/hey_yogini/usecontext-for-better-state-management-51hi
 https://editor.swagger.io/
 
-
 ## Skills
 - S'authentifier à une API
 - Modéliser une API
 - Intéragir avec une API
 - Implémenter un gestionnaire d'état dans une application React
 
+## Installation
+```bash
+$ pnpm create vite client --template react
+$ cd client && pnpm install
+$ pnpm install react-redux @reduxjs/toolkit
+ ```
