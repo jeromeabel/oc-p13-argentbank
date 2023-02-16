@@ -1,5 +1,5 @@
-import styles from './Features.module.scss';
 import Feature from './Feature/Feature';
+import styles from './Features.module.scss';
 
 const Features = () => {
   return (

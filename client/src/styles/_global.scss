@@ -4,6 +4,12 @@
 
 html {
   box-sizing: border-box;
+  text-align: center;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--color-secondary);
+  font-size: var(--font-m);
 }
 
 *,
@@ -15,12 +21,6 @@ html {
 }
 
 body {
-  text-align: center;
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: var(--color-black);
-  font-size: var(--font-m);
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -28,9 +28,9 @@ body {
 
 picture,
 img {
-  display: block;
-  width: 100%;
-  max-width: 100%;
+  // display: block;
+  // width: 100%;
+  // max-width: 100%;
 }
 
 header,
