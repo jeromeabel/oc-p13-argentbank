@@ -2,7 +2,8 @@
 
 @import './mixins';
 
-html {
+html,
+body {
   box-sizing: border-box;
   text-align: center;
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -20,7 +21,7 @@ html {
   padding: 0;
 }
 
-body {
+#root {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -38,6 +39,10 @@ main,
 footer {
   width: 100%;
   min-width: 350px;
+}
+
+main {
+  flex: 1;
 }
 
 footer {
@@ -62,6 +67,10 @@ footer {
   position: absolute !important;
   width: 1px !important;
   white-space: nowrap !important; /* 3 */
+}
+
+.bg-dark {
+  background-color: #12002b;
 }
 
 a {

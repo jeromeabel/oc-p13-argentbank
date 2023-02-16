@@ -13,7 +13,7 @@ export default function Header() {
         </Link>
         <h1 className="sr-only">Argent Bank</h1>
         <div>
-          <NavLink className={styles.nav__item} to="/sign-in">
+          <NavLink className={styles.nav__item} to="/signin">
             <i className="fa fa-user-circle" /> Sign In
           </NavLink>
         </div>

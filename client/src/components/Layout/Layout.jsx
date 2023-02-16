@@ -7,13 +7,11 @@ import styles from './Layout.module.scss';
 
 function Layout() {
   return (
-    <div className={styles.layout}>
+    <>
       <Header />
-      <main className={styles.layout__main}>
-        <Outlet />
-      </main>
+      <Outlet />
       <Footer />
-    </div>
+    </>
   );
 }
 
