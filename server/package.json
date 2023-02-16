@@ -2,7 +2,7 @@
   "name": "argent-bank-api",
   "version": "0.0.1",
   "private": true,
-  "description": "Project #10 - Argent Bank",
+  "description": "Project #13 - Argent Bank",
   "keywords": [],
   "author": "",
   "license": "",
@@ -19,9 +19,9 @@
     "yamljs": "^0.3.0"
   },
   "scripts": {
-    "dev:server": "nodemon ./server/server.js",
-    "populate-db": "node ./server/scripts/populateDatabase.js",
-    "server": "node ./server/server.js"
+    "dev:server": "nodemon ./src/server.js",
+    "populate-db": "node ./src/scripts/populateDatabase.js",
+    "server": "node ./src/server.js"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
