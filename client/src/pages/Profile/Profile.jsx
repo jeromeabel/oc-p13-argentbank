@@ -1,7 +1,7 @@
 import Accounts from '../../components/Accounts/Accounts';
-import styles from './User.module.scss';
+import styles from './Profile.module.scss';
 
-const User = () => {
+const Profile = () => {
   return (
     <main className="bg-dark">
       <div className={styles.header}>
@@ -17,4 +17,4 @@ const User = () => {
   );
 };
 
-export default User;
+export default Profile;

@@ -1,6 +1,6 @@
-import styles from './SignIn.module.scss';
+import styles from './Login.module.scss';
 
-const SignIn = () => {
+const Login = () => {
   return (
     <main className="bg-dark">
       <section className={styles.content}>
@@ -19,7 +19,7 @@ const SignIn = () => {
             <input type="checkbox" id="remember-me" />
             <label for="remember-me">Remember me</label>
           </div>
-          <a href="/user" className={styles.button}>
+          <a href="/profile" className={styles.button}>
             Sign In
           </a>
           {/* <!-- <button className="sign-in-button">Sign In</button> --> */}
@@ -29,4 +29,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default Login;
