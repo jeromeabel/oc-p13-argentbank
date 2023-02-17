@@ -6,7 +6,7 @@ import Login from '../pages/Login/Login';
 import Profile from '../pages/Profile/Profile';
 // import Error404 from './pages/Error404/Error404';
 
-const App = createBrowserRouter(
+const AppRouter = createBrowserRouter(
   [
     {
       path: '/',
@@ -27,4 +27,4 @@ const App = createBrowserRouter(
   //  { basename: '/oc-p13-argentbank' } // Deploy to this folder
 );
 
-export default App;
+export default AppRouter;

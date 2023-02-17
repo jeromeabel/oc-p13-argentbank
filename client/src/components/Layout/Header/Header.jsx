@@ -3,13 +3,15 @@ import { NavLink, Link } from 'react-router-dom';
 import logoSVG from '/logo-argentbank.svg';
 
 import styles from './Header.module.scss';
-
+import { useSelector } from 'react-redux';
 /*
 +USER name
 +Signout
 */
 
 export default function Header() {
+  const name = useSelector((state) => state.auth.name);
+
   return (
     <header>
       <nav className={styles.nav}>
@@ -18,9 +20,11 @@ export default function Header() {
         </Link>
         <h1 className="sr-only">Argent Bank</h1>
         <div>
-          <NavLink className={styles.nav__item} to="/profile">
-            <i className="fa fa-user-circle" /> Tony
-          </NavLink>
+          {name && (
+            <NavLink className={styles.nav__item} to="/profile">
+              <i className="fa fa-user-circle" /> {name}
+            </NavLink>
+          )}
 
           <NavLink className={styles.nav__item} to="/logout">
             <i className="fa fa-sign-out" /> Sign Out
