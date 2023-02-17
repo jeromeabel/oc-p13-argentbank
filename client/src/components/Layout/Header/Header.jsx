@@ -1,16 +1,19 @@
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link, useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectCurrentUser, logOut } from '../../../features/auth/authSlice';
 
 import logoSVG from '/logo-argentbank.svg';
 
 import styles from './Header.module.scss';
-import { useSelector } from 'react-redux';
-/*
-+USER name
-+Signout
-*/
 
 export default function Header() {
-  const name = useSelector((state) => state.auth.name);
+  const user = useSelector(selectCurrentUser);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleLogOut = () => {
+    dispatch(logOut());
+  };
 
   return (
     <header>
@@ -20,19 +23,24 @@ export default function Header() {
         </Link>
         <h1 className="sr-only">Argent Bank</h1>
         <div>
-          {name && (
-            <NavLink className={styles.nav__item} to="/profile">
-              <i className="fa fa-user-circle" /> {name}
+          {user ? (
+            <>
+              <NavLink className={styles.nav__item} to="/profile">
+                <i className="fa fa-user-circle" /> {user.email}
+              </NavLink>
+              <NavLink
+                onClick={handleLogOut}
+                className={styles.nav__item}
+                to="/"
+              >
+                <i className="fa fa-sign-out" /> Sign Out
+              </NavLink>
+            </>
+          ) : (
+            <NavLink className={styles.nav__item} to="/login">
+              <i className="fa fa-user-circle" /> Sign In
             </NavLink>
           )}
-
-          <NavLink className={styles.nav__item} to="/logout">
-            <i className="fa fa-sign-out" /> Sign Out
-          </NavLink>
-
-          <NavLink className={styles.nav__item} to="/login">
-            <i className="fa fa-user-circle" /> Sign In
-          </NavLink>
         </div>
       </nav>
     </header>
