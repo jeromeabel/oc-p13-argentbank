@@ -19,7 +19,7 @@ const SignIn = () => {
             <input type="checkbox" id="remember-me" />
             <label for="remember-me">Remember me</label>
           </div>
-          <a href="./user.html" className={styles.button}>
+          <a href="/user" className={styles.button}>
             Sign In
           </a>
           {/* <!-- <button className="sign-in-button">Sign In</button> --> */}

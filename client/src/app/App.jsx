@@ -3,7 +3,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import Layout from '../components/Layout/Layout';
 import Home from '../pages/Home/Home';
 import SignIn from '../pages/SignIn/SignIn';
-// import Profile from './pages/Profile/Profile';
+import User from '../pages/User/User';
 // import Error404 from './pages/Error404/Error404';
 
 const App = createBrowserRouter(
@@ -14,6 +14,7 @@ const App = createBrowserRouter(
       children: [
         { index: true, element: <Home /> },
         { path: 'signin', element: <SignIn /> },
+        { path: 'user', element: <User /> },
         // {
         //   path: 'profile/:id',
         //   element: <Profile />,

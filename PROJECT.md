@@ -2,9 +2,8 @@
 
 ## Epic Tasks #1 - Users Authentication
 - [x] Fork
-- [ ] Setup client : vite, react-redux, rtk, sass
-- [ ] React App : home, connection, profile
-- [ ] Responsive
+- [x] Setup client : vite, react-redux, reduxtoolkit, sass
+- [x] React App - Responsive pages : home, signin, user
 - [ ] Features (Github Issues)
     - User can see the home page
     - User can login to the system
