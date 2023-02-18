@@ -1,14 +1,17 @@
-import styles from './Login.module.scss';
-import { useLoginMutation } from '../../app/services/api';
-import { setCredentials } from '../../features/auth/authSlice';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+
+import { useLoginMutation } from '../../app/api/apiSlice';
+import { setCredentials } from '../../features/authSlice';
+
+import styles from './Login.module.scss';
 
 const Login = () => {
   const [formState, setFormState] = useState({ email: '', password: '' });
   const { email, password } = formState;
   const [login, { data, isLoading }] = useLoginMutation();
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -20,20 +23,21 @@ const Login = () => {
   };
 
   const handleSubmit = async (e) => {
+    console.log('CanSave:', canSave);
     e.preventDefault();
     if (email && password && !isLoading) {
       try {
         const result = await login(formState); //.unwrap(); // ???
         // console.log(result);
-        // console.log(data);
-        if (result) {
+        // console.log(data); // ?? pourquoi on ne voit pas de data
+        if (result.data.body.token) {
           dispatch(
             setCredentials({
               token: result.data.body.token,
               user: formState,
             })
           );
-          navigate('/');
+          navigate('/profile', { replace: true }); //?? replace
         }
       } catch (err) {
         console.error('Failed to login: ', err);

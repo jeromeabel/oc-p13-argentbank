@@ -1,13 +1,13 @@
 import { NavLink, Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectCurrentUser, logOut } from '../../../features/auth/authSlice';
-
+import { logOut } from '../../../features/authSlice';
+import { selectUser } from '../../../features/userSlice';
 import logoSVG from '/logo-argentbank.svg';
 
 import styles from './Header.module.scss';
 
 export default function Header() {
-  const user = useSelector(selectCurrentUser);
+  const user = useSelector(selectUser);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -23,10 +23,10 @@ export default function Header() {
         </Link>
         <h1 className="sr-only">Argent Bank</h1>
         <div>
-          {user ? (
+          {user?.firstName ? (
             <>
               <NavLink className={styles.nav__item} to="/profile">
-                <i className="fa fa-user-circle" /> {user.email}
+                <i className="fa fa-user-circle" /> {user.firstName}
               </NavLink>
               <NavLink
                 onClick={handleLogOut}
