@@ -12,6 +12,7 @@ export const api = createApi({
       return headers;
     },
   }),
+  // tagTypes: ['User'],
   endpoints: (builder) => ({
     login: builder.mutation({
       query: (credentials) => {
@@ -21,6 +22,8 @@ export const api = createApi({
           body: credentials,
         };
       },
+      // invalidatesTags: ['User'],
+      // providesTags: ['User'],
     }),
     getUser: builder.mutation({
       query: () => {
@@ -29,8 +32,22 @@ export const api = createApi({
           method: 'POST',
         };
       },
+      // providesTags: ['User'],
+      // invalidatesTags: ['User'],
+    }),
+    setUserName: builder.mutation({
+      query: (body) => {
+        return {
+          url: '/user/profile',
+          method: 'PUT',
+          body,
+        };
+      },
+      // invalidatesTags: ['User'],
+      // providesTags: ['User'],
     }),
   }),
 });
 
-export const { useLoginMutation, useGetUserMutation } = api;
+export const { useLoginMutation, useGetUserMutation, useSetUserNameMutation } =
+  api;

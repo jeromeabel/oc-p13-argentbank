@@ -5,11 +5,11 @@
 - [x] Setup client : vite, react-redux, reduxtoolkit, sass
 - [x] React App - Responsive pages : home, login, profile
 - [ ] Features (Github Issues)
-    - User can see the home page
-    - User can login to the system
-    - User can logout to the system
-    - User can only see their own profile
-    - User can update their profile
+    - [x] User can see the home page
+    - [x] [x]User can login to the system
+    - [x] User can logout to the system
+    - [x] User can only see their own profile
+    - [ ] User can update their profile
 
 ## Tasks #2 - Transactions
 - voir maquette page des transactions 

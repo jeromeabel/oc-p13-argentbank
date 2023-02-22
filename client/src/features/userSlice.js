@@ -18,9 +18,13 @@ const userSlice = createSlice({
       state.lastName = null;
       state.email = null;
     },
+    setName: (state, { payload }) => {
+      state.firstName = payload.firstName;
+      state.lastName = payload.lastName;
+    },
   },
 });
 
-export const { setUser, clearUser } = userSlice.actions;
+export const { setUser, clearUser, setName } = userSlice.actions;
 export default userSlice.reducer;
 export const selectCurrentUser = (state) => state.user;

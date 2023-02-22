@@ -1,12 +1,15 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Accounts from './Accounts/Accounts';
 import styles from './Profile.module.scss';
 import { useGetUserMutation } from '../../app/apiSlice';
 import { setUser, selectCurrentUser } from '../../features/userSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
+import EditName from './EditName/EditName';
+
 const Profile = () => {
-  const [getUser, { data, isLoading, isSuccess }] = useGetUserMutation();
+  const [isEditName, setIsEditName] = useState(false);
+  const [getUser] = useGetUserMutation();
   const dispatch = useDispatch();
 
   const user = useSelector(selectCurrentUser);
@@ -33,10 +36,15 @@ const Profile = () => {
         <h1>
           Welcome back
           <br />
-          {user?.firstName && user.firstName}
-          {user?.lastName && user.lastName}
+          {user?.firstName && `${user.firstName} ${user.lastName}`}
         </h1>
-        <button className={styles.button}>Edit Name</button>
+        <button
+          className={styles.button}
+          onClick={() => setIsEditName(!isEditName)}
+        >
+          Edit Name
+        </button>
+        {isEditName && <EditName />}
       </div>
       <Accounts />
     </main>

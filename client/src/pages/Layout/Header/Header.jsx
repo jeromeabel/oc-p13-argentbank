@@ -1,4 +1,4 @@
-import { NavLink, Link, useNavigate } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { clearToken, selectCurrentToken } from '../../../features/authSlice';
 import { clearUser, selectCurrentUser } from '../../../features/userSlice';

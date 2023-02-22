@@ -10,7 +10,12 @@ import styles from './Layout.module.scss';
 function Layout() {
   return (
     <>
-      <ToastContainer position="top-center" />
+      <ToastContainer
+        position="top-center"
+        pauseOnFocusLoss={false}
+        pauseOnHover={false}
+        autoClose={3000}
+      />
       <Header />
       <Outlet />
       <Footer />
