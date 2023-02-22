@@ -1,18 +1,19 @@
 import { NavLink, Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { logOut } from '../../../features/authSlice';
-import { selectUser } from '../../../features/userSlice';
-import logoSVG from '/logo-argentbank.svg';
+import { clearToken, selectCurrentToken } from '../../../features/authSlice';
+import { clearUser, selectCurrentUser } from '../../../features/userSlice';
 
+import logoSVG from '/logo.png';
 import styles from './Header.module.scss';
 
 export default function Header() {
-  const user = useSelector(selectUser);
+  const token = useSelector(selectCurrentToken);
+  const user = useSelector(selectCurrentUser);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const handleLogOut = () => {
-    dispatch(logOut());
+    dispatch(clearToken());
+    dispatch(clearUser());
   };
 
   return (
@@ -23,7 +24,7 @@ export default function Header() {
         </Link>
         <h1 className="sr-only">Argent Bank</h1>
         <div>
-          {user?.firstName ? (
+          {token && user ? (
             <>
               <NavLink className={styles.nav__item} to="/profile">
                 <i className="fa fa-user-circle" /> {user.firstName}

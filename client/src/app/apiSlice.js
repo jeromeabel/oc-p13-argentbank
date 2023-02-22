@@ -4,12 +4,8 @@ export const api = createApi({
   reducerPath: 'api', // cached reducer
   baseQuery: fetchBaseQuery({
     baseUrl: 'http://localhost:3001/api/v1',
-    // credentials: 'include',
     prepareHeaders: (headers, { getState }) => {
       const token = getState().auth.token;
-      // console.log('GETSTATE :::: ', getState());
-      // console.log('HEADERS ::::', headers);
-      //headers.set('Accept', 'application/json');
       if (!headers.has('Authorization') && token) {
         headers.set('Authorization', `Bearer ${token}`);
       }
@@ -22,7 +18,7 @@ export const api = createApi({
         return {
           url: '/user/login',
           method: 'POST',
-          body: { ...credentials },
+          body: credentials,
         };
       },
     }),
@@ -38,7 +34,3 @@ export const api = createApi({
 });
 
 export const { useLoginMutation, useGetUserMutation } = api;
-
-// headers: {
-//   'Content-type': 'application/json; charset=UTF-8',
-// },
