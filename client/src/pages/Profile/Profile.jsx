@@ -8,7 +8,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import EditName from './EditName/EditName';
 
 const Profile = () => {
-  const [isEditName, setIsEditName] = useState(false);
   const [getUser] = useGetUserMutation();
   const dispatch = useDispatch();
 
@@ -38,13 +37,7 @@ const Profile = () => {
           <br />
           {user?.firstName && `${user.firstName} ${user.lastName}`}
         </h1>
-        <button
-          className={styles.button}
-          onClick={() => setIsEditName(!isEditName)}
-        >
-          Edit Name
-        </button>
-        {isEditName && <EditName />}
+        <EditName />
       </div>
       <Accounts />
     </main>

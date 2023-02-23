@@ -11,6 +11,8 @@ const EditName = () => {
 
   const user = useSelector(selectCurrentUser);
   const [setUserName, { isLoading }] = useSetUserNameMutation();
+  const [isOpen, setIsOpen] = useState(false);
+
   const [formState, setFormState] = useState({ firstName: '', lastName: '' });
   const { firstName, lastName } = formState;
 
@@ -31,7 +33,6 @@ const EditName = () => {
       if (user.firstName !== firstName || user.lastName !== lastName) {
         try {
           const result = await setUserName(formState); //?? .unwrap()
-          console.log(result);
           if (result.data) {
             dispatch(setName(formState));
             toast.success('Your name has changed');
@@ -43,40 +44,52 @@ const EditName = () => {
           console.error('Failed to set name: ', err);
         }
       } else {
-        toast.warn('Please choose a different name');
+        toast.warn('Nothings happens, the name has not changed.');
       }
     } else {
-      toast.error('Please fill the fields');
+      toast.error('Fields are empty');
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className={styles.content}>
-      <div style={{ alignItems: 'flex-end' }} className={styles.col}>
-        <input
-          className={styles.input}
-          type="text"
-          id="firstName"
-          value={firstName}
-          onChange={handleChangeInput}
-        />
-        <button type="submit" className={styles.button}>
-          Save
+    <>
+      {!isOpen ? (
+        <button className={styles.button} onClick={() => setIsOpen(true)}>
+          Edit Name
         </button>
-      </div>
-      <div className={styles.col}>
-        <input
-          className={styles.input}
-          type="text"
-          id="lastName"
-          value={lastName}
-          onChange={handleChangeInput}
-        />
-        <button type="" className={styles.button}>
-          Cancel
-        </button>
-      </div>
-    </form>
+      ) : (
+        <form onSubmit={handleSubmit} className={styles.content}>
+          <div style={{ alignItems: 'flex-end' }} className={styles.col}>
+            <input
+              className={styles.input}
+              type="text"
+              id="firstName"
+              value={firstName}
+              onChange={handleChangeInput}
+            />
+            <button type="submit" className={styles.button}>
+              Save
+            </button>
+          </div>
+          <div className={styles.col}>
+            <input
+              className={styles.input}
+              type="text"
+              id="lastName"
+              value={lastName}
+              onChange={handleChangeInput}
+            />
+            <button
+              type="reset"
+              onClick={() => setIsOpen(false)}
+              className={styles.button}
+            >
+              Cancel
+            </button>
+          </div>
+        </form>
+      )}
+    </>
   );
 };
 
