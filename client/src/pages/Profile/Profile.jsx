@@ -8,14 +8,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import EditName from './EditName/EditName';
 
 const Profile = () => {
-  const [getUser] = useGetUserMutation();
+  const [getUser] = useGetUserMutation(); // API : Post récupérer User
   const dispatch = useDispatch();
 
-  const user = useSelector(selectCurrentUser);
+  const user = useSelector(selectCurrentUser); // Récupérer le store/slice current User
 
   useEffect(() => {
     async function fetchData() {
-      const response = await getUser();
+      const response = await getUser(); // API
       if (response.data.status === 200) {
         dispatch(
           setUser({
@@ -26,8 +26,9 @@ const Profile = () => {
         );
       }
     }
+
     fetchData();
-  }, []);
+  }, [user]);
 
   return (
     <main className="bg-dark">

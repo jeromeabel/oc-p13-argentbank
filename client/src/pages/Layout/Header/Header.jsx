@@ -11,6 +11,8 @@ export default function Header() {
   const user = useSelector(selectCurrentUser);
   const dispatch = useDispatch();
 
+  // console.log('HEADER --- ', user);
+
   const handleLogOut = () => {
     dispatch(clearToken());
     dispatch(clearUser());
@@ -24,7 +26,7 @@ export default function Header() {
         </Link>
         <h1 className="sr-only">Argent Bank</h1>
         <div>
-          {token && user ? (
+          {token && user.firstName ? (
             <>
               <NavLink className={styles.nav__item} to="/profile">
                 <i className="fa fa-user-circle" /> {user.firstName}

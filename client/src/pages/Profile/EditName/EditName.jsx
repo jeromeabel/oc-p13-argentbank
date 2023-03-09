@@ -9,17 +9,16 @@ import styles from './EditName.module.scss';
 const EditName = () => {
   const dispatch = useDispatch();
 
-  const user = useSelector(selectCurrentUser);
+  const user = useSelector(selectCurrentUser); // début : rien ... après await de Profile : ok ?
   const [setUserName, { isLoading }] = useSetUserNameMutation();
   const [isOpen, setIsOpen] = useState(false);
 
   const [formState, setFormState] = useState({ firstName: '', lastName: '' });
+
   const { firstName, lastName } = formState;
 
   useEffect(() => {
-    if (user.firstName && user.firstName !== firstName) {
-      setFormState({ firstName: user.firstName, lastName: user.lastName });
-    }
+    setFormState({ firstName: user.firstName, lastName: user.lastName });
   }, [user]);
 
   const handleChangeInput = (e) => {
@@ -27,6 +26,7 @@ const EditName = () => {
   };
 
   const handleSubmit = async (e) => {
+    // Vérifier mon formulaire
     const canSave = [firstName, lastName].every(Boolean) && !isLoading;
     e.preventDefault();
     if (canSave) {
@@ -36,7 +36,6 @@ const EditName = () => {
           if (result.data) {
             dispatch(setName(formState));
             toast.success('Your name has changed');
-            //e.target.reset();
           } else {
             toast.error(`${result.error.data.message}`);
           }

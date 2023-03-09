@@ -1,9 +1,10 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const api = createApi({
-  reducerPath: 'api', // cached reducer
+  reducerPath: 'api',
   baseQuery: fetchBaseQuery({
     baseUrl: 'http://localhost:3001/api/v1',
+    // credentials: 'include',
     prepareHeaders: (headers, { getState }) => {
       const token = getState().auth.token;
       if (!headers.has('Authorization') && token) {
@@ -12,18 +13,16 @@ export const api = createApi({
       return headers;
     },
   }),
-  // tagTypes: ['User'],
   endpoints: (builder) => ({
     login: builder.mutation({
-      query: (credentials) => {
+      query: (body) => {
         return {
           url: '/user/login',
           method: 'POST',
-          body: credentials,
+          body,
+          // credentials: 'include',
         };
       },
-      // invalidatesTags: ['User'],
-      // providesTags: ['User'],
     }),
     getUser: builder.mutation({
       query: () => {
@@ -32,8 +31,6 @@ export const api = createApi({
           method: 'POST',
         };
       },
-      // providesTags: ['User'],
-      // invalidatesTags: ['User'],
     }),
     setUserName: builder.mutation({
       query: (body) => {
@@ -43,8 +40,6 @@ export const api = createApi({
           body,
         };
       },
-      // invalidatesTags: ['User'],
-      // providesTags: ['User'],
     }),
   }),
 });
