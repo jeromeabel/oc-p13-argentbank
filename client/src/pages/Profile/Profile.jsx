@@ -11,11 +11,8 @@ import EditName from './EditName/EditName';
 const Profile = () => {
   const [getUser] = useGetUserMutation(); // API : Post récupérer User
   const dispatch = useDispatch();
-
   const user = useSelector(selectCurrentUser); // Récupérer le store/slice current User
   const rememberMe = useSelector(selectCurrentRememberMe);
-
-  // console.log(user);
 
   useEffect(() => {
     async function fetchData() {
@@ -26,12 +23,9 @@ const Profile = () => {
             email: response.data.body.email,
             firstName: response.data.body.firstName,
             lastName: response.data.body.lastName,
+            rememberMe,
           })
         );
-        if (rememberMe || localStorage.getItem('firstName')) {
-          localStorage.setItem('firstName', response.data.body.firstName);
-          localStorage.setItem('lastName', response.data.body.lastName);
-        }
       }
     }
 

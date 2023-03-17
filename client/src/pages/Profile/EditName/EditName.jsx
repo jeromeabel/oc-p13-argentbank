@@ -9,15 +9,11 @@ import styles from './EditName.module.scss';
 
 const EditName = () => {
   const dispatch = useDispatch();
-
   const rememberMe = useSelector(selectCurrentRememberMe);
-
   const user = useSelector(selectCurrentUser); // début : rien ... après await de Profile : ok ?
   const [setUserName, { isLoading }] = useSetUserNameMutation();
   const [isOpen, setIsOpen] = useState(false);
-
   const [formState, setFormState] = useState({ firstName: '', lastName: '' });
-
   const { firstName, lastName } = formState;
 
   useEffect(() => {
@@ -37,12 +33,8 @@ const EditName = () => {
         try {
           const result = await setUserName(formState); //?? .unwrap()
           if (result.data) {
-            dispatch(setName(formState));
+            dispatch(setName({ ...formState, rememberMe }));
             toast.success('Your name has changed');
-            if (rememberMe || localStorage.getItem('firstName')) {
-              localStorage.setItem('firstName', formState.firstName);
-              localStorage.setItem('lastName', formState.lastName);
-            }
           } else {
             toast.error(`${result.error.data.message}`);
           }

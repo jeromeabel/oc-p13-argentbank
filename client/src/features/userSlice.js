@@ -12,6 +12,10 @@ const userSlice = createSlice({
       state.firstName = payload.firstName;
       state.lastName = payload.lastName;
       state.email = payload.email;
+      if (payload.rememberMe || localStorage.getItem('firstName')) {
+        localStorage.setItem('firstName', payload.firstName);
+        localStorage.setItem('lastName', payload.lastName);
+      }
     },
     clearUser: (state, _) => {
       state.firstName = null;
@@ -21,6 +25,10 @@ const userSlice = createSlice({
     setName: (state, { payload }) => {
       state.firstName = payload.firstName;
       state.lastName = payload.lastName;
+      if (payload.rememberMe || localStorage.getItem('firstName')) {
+        localStorage.setItem('firstName', payload.firstName);
+        localStorage.setItem('lastName', payload.lastName);
+      }
     },
   },
 });

@@ -1,5 +1,13 @@
 # PROJECT
 
+
+## Difficultés
+- RTK + Query
+- infinite Loop
+- Session Storage
+- ! Best Practice JWT / security : from server : cookie+httpOnly
+
+
 ## Epic Tasks #1 - Users Authentication
 - [x] Fork
 - [x] Setup client : vite, react-redux, reduxtoolkit, sass
@@ -9,7 +17,7 @@
     - [x] [x]User can login to the system
     - [x] User can logout to the system
     - [x] User can only see their own profile
-    - [ ] User can update their profile
+    - [x] User can update their profile
 
 ## Tasks #2 - Transactions
 - voir maquette page des transactions 
