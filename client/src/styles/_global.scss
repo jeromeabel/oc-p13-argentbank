@@ -34,6 +34,14 @@ img {
   // max-width: 100%;
 }
 
+button {
+  cursor: pointer;
+  &:disabled {
+    background-color: #cccccc;
+    color: #666666;
+  }
+}
+
 header,
 main,
 footer {

@@ -9,7 +9,9 @@ const Account = ({ title, amount, balance }) => {
         <p>{balance} Balance</p>
       </div>
       <div className={`${styles.content} ${styles.cta}`}>
-        <button className={styles.button}>View transactions</button>
+        <button disabled className={styles.button}>
+          View transactions
+        </button>
       </div>
     </section>
   );
