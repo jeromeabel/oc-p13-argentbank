@@ -10,6 +10,7 @@ import styles from './Login.module.scss';
 
 const Login = () => {
   const [formState, setFormState] = useState({ email: '', password: '' });
+  const [rememberMe, setRememberMe] = useState(false);
   const { email, password } = formState;
   const [login, { isLoading }] = useLoginMutation();
 
@@ -28,7 +29,7 @@ const Login = () => {
       try {
         const result = await login(formState); //?? .unwrap()
         if (result.data) {
-          dispatch(setToken({ token: result.data.body.token }));
+          dispatch(setToken({ token: result.data.body.token, rememberMe }));
           navigate('/profile', { replace: true }); // ?? replace
           toast.success('You are successfully connected');
           e.target.reset();
@@ -58,7 +59,11 @@ const Login = () => {
             <input type="password" id="password" onChange={handleChangeInput} />
           </div>
           <div className={styles.remember}>
-            <input type="checkbox" id="remember-me" />
+            <input
+              type="checkbox"
+              id="remember-me"
+              onChange={(e) => setRememberMe(e.target.checked)}
+            />
             <label htmlFor="remember-me">Remember me</label>
           </div>
           <button type="submit" className={styles.button}>

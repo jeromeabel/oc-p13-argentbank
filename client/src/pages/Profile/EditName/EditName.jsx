@@ -3,11 +3,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { setName, selectCurrentUser } from '../../../features/userSlice';
 import { useSetUserNameMutation } from '../../../app/apiSlice';
+import { selectCurrentRememberMe } from '../../../features/authSlice';
 
 import styles from './EditName.module.scss';
 
 const EditName = () => {
   const dispatch = useDispatch();
+
+  const rememberMe = useSelector(selectCurrentRememberMe);
 
   const user = useSelector(selectCurrentUser); // début : rien ... après await de Profile : ok ?
   const [setUserName, { isLoading }] = useSetUserNameMutation();
@@ -36,6 +39,10 @@ const EditName = () => {
           if (result.data) {
             dispatch(setName(formState));
             toast.success('Your name has changed');
+            if (rememberMe || localStorage.getItem('firstName')) {
+              localStorage.setItem('firstName', formState.firstName);
+              localStorage.setItem('lastName', formState.lastName);
+            }
           } else {
             toast.error(`${result.error.data.message}`);
           }

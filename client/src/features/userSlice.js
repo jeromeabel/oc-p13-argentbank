@@ -27,4 +27,11 @@ const userSlice = createSlice({
 
 export const { setUser, clearUser, setName } = userSlice.actions;
 export default userSlice.reducer;
-export const selectCurrentUser = (state) => state.user;
+export const selectCurrentUser = (state) => {
+  return state.user.firstName
+    ? state.user
+    : {
+        firstName: localStorage.getItem('firstName'),
+        lastName: localStorage.getItem('lastName'),
+      };
+};

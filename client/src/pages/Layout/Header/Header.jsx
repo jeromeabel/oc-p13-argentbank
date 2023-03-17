@@ -11,11 +11,10 @@ export default function Header() {
   const user = useSelector(selectCurrentUser);
   const dispatch = useDispatch();
 
-  // console.log('HEADER --- ', user);
-
   const handleLogOut = () => {
     dispatch(clearToken());
     dispatch(clearUser());
+    localStorage.clear();
   };
 
   return (

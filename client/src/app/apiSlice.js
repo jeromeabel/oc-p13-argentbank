@@ -6,7 +6,7 @@ export const api = createApi({
     baseUrl: 'http://localhost:3001/api/v1',
     // credentials: 'include',
     prepareHeaders: (headers, { getState }) => {
-      const token = getState().auth.token;
+      const token = getState().auth.token || localStorage.getItem('token');
       if (!headers.has('Authorization') && token) {
         headers.set('Authorization', `Bearer ${token}`);
       }

@@ -3,6 +3,7 @@ import Accounts from './Accounts/Accounts';
 import styles from './Profile.module.scss';
 import { useGetUserMutation } from '../../app/apiSlice';
 import { setUser, selectCurrentUser } from '../../features/userSlice';
+import { selectCurrentRememberMe } from '../../features/authSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
 import EditName from './EditName/EditName';
@@ -12,6 +13,9 @@ const Profile = () => {
   const dispatch = useDispatch();
 
   const user = useSelector(selectCurrentUser); // Récupérer le store/slice current User
+  const rememberMe = useSelector(selectCurrentRememberMe);
+
+  // console.log(user);
 
   useEffect(() => {
     async function fetchData() {
@@ -24,11 +28,15 @@ const Profile = () => {
             lastName: response.data.body.lastName,
           })
         );
+        if (rememberMe || localStorage.getItem('firstName')) {
+          localStorage.setItem('firstName', response.data.body.firstName);
+          localStorage.setItem('lastName', response.data.body.lastName);
+        }
       }
     }
 
     fetchData();
-  }, [user]);
+  }, []); //user
 
   return (
     <main className="bg-dark">
