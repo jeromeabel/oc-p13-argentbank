@@ -222,7 +222,7 @@ paths:
           type: integer
         - name : transactionField
           in: path
-          description: Existing Field of the transaction
+          description: Existing Field of the transaction to be deleted
           required: true
           type: string
       produces:
@@ -254,7 +254,7 @@ paths:
           type: integer
         - name : transactionField
           in: path
-          description: Existing Field of the transaction
+          description: Existing Field of the transaction to be modified
           required: true
           type: string
       produces:
