@@ -1,9 +1,9 @@
 # PROJECT
 
 
-## Difficultés
+## Difficulties
 - RTK + Query
-- infinite Loop
+- infinite Loop / useEffect
 - Session Storage
 - ! Best Practice JWT / security : from server : cookie+httpOnly
 
