@@ -143,8 +143,8 @@ paths:
         - Bearer: []
       tags:
         - Transaction Module
-      summary: Find transaction details by id
-      description: Find transaction details by id (jwt token)
+      summary: Find transaction's details by id
+      description: Find transaction's details by id (jwt token)
       parameters:
         - in: header
           name: Authorization
@@ -160,7 +160,7 @@ paths:
         - application/json
       responses:
         '200':
-          description: Get Transactions Details Successfully
+          description: Get Transaction Details Successfully
           schema:
             $ref: '#/definitions/TransactionDetails'
         '400':
@@ -334,6 +334,7 @@ definitions:
     properties:
       date:
         type: string
+        format: date
       description:
         type: string
       amount:
