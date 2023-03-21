@@ -1,12 +1,10 @@
 # PROJECT
 
-
 ## Difficulties
 - RTK + Query
-- infinite Loop / useEffect
+- Infinite Loop / useEffect
 - Session Storage
 - ! Best Practice JWT / security : from server : cookie+httpOnly
-
 
 ## Epic Tasks #1 - Users Authentication
 - [x] Fork
@@ -14,7 +12,7 @@
 - [x] React App - Responsive pages : home, login, profile
 - [ ] Features (Github Issues)
     - [x] User can see the home page
-    - [x] [x]User can login to the system
+    - [x] User can login to the system
     - [x] User can logout to the system
     - [x] User can only see their own profile
     - [x] User can update their profile

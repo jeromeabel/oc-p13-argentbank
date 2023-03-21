@@ -13,25 +13,59 @@ The backend is provided with a tiny data set of two users. My goals are :
 - add an authentication system with Redux
 - document the API with Swagger
 
-## ✨ Demo
+## ✨ Interface
 
-...
+![ArgentBank Profile Page](screen.png)
 
 ## 🚨 Prerequisites
 
-...
+To get and build the project you will need to install :
+
+- [NodeJS](https://nodejs.org/)
+- A terminal to run commands. If you don't have one, I would recommend to use [Visual Studio Code](https://code.visualstudio.com/), it provides an integrated terminal inside the code editor.
+- Optional : Pnpm instead of npm
+- Optional : [Git](https://git-scm.com/)
 
 ## 🛠️ Installation
 
-...
+Please refer to the server/README.md for further details about the backend.
+
+**Server**
+```sh
+$ cd backend
+$ pnpm install
+```
+
+**Client**
+```sh
+$ cd client
+$ pnpm install
+```
 
 ## 🚀 Usage
+You need to start the server and the client.
 
-...
+**Server**
+```sh
+$ cd backend
+$ pnpm run dev
+```
 
-## 🤝 Contributing
+**Client**
+```sh
+$ cd client
+$ pnpm run dev
+```
 
-...
+And open the browser at this address : http://localhost:5173/
+
+You can provide these data to get access to the profile page :
+- Email: `steve@rogers.com`,
+- Password: `password456`
+
+Note that you can also check the "Remember me" checkbox to store your authentification data. If you want to clear those, you need to click on the "Logout" button.
+
+Have a try!
 
 ## 👤 Authors
 
