@@ -83,7 +83,7 @@ const EditNameForm = () => {
         </button>
       ) : (
         <form onSubmit={handleSubmit} className={styles.content}>
-          <div className={styles.col}>
+          <div style={{ alignItems: 'flex-end' }} className={styles.col}>
             <input
               className={styles.input}
               type="text"
