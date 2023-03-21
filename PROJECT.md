@@ -1,10 +1,17 @@
 # PROJECT
 
 ## Difficulties
-- RTK + Query
+- Remember me : dispatch(setName({ ...formState, rememberMe }));
+- RTK + Query : 
+  - credentials: 'include'
+  - await login(values).unwrap() ??
+- navigate('/profile', { replace: true }); //
+-  Form reset();
+-  fetchData(); []); //user
+-  const user = useSelector(selectCurrentUser); // début : rien ... après await de Profile : ok ?
 - Infinite Loop / useEffect
-- Session Storage
-- ! Best Practice JWT / security : from server : cookie+httpOnly
+- Session Storage Authentication
+- ! Best Practice JWT / security : from server : cookie+httpOnly       
 
 ## Epic Tasks #1 - Users Authentication
 - [x] Fork

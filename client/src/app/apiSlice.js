@@ -1,10 +1,16 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
+/**
+ * Api setup from RTK Query
+ *
+ * Phase 1 : Authentication
+ * Three endpoints are provided, based on the Swagger API documentation (backend/swagger.yaml)
+ * The token is provided by Redux Store and add to the Header of HTTP requests
+ */
 export const api = createApi({
   reducerPath: 'api',
   baseQuery: fetchBaseQuery({
     baseUrl: 'http://localhost:3001/api/v1',
-    // credentials: 'include',
     prepareHeaders: (headers, { getState }) => {
       const token = getState().auth.token || localStorage.getItem('token');
       if (!headers.has('Authorization') && token) {
@@ -13,6 +19,7 @@ export const api = createApi({
       return headers;
     },
   }),
+  // Phase 1 : Authentication endpoints
   endpoints: (builder) => ({
     login: builder.mutation({
       query: (body) => {
@@ -20,7 +27,6 @@ export const api = createApi({
           url: '/user/login',
           method: 'POST',
           body,
-          // credentials: 'include',
         };
       },
     }),

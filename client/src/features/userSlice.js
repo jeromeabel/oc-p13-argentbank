@@ -1,5 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+/**
+ * The User slice based on RTK
+ * It stores the user's data : firstName, lastName and email
+ * If the rememberMe value is true, it stores also firstName and lastName to the localStorage
+ */
 const userSlice = createSlice({
   name: 'user',
   initialState: {
@@ -35,6 +40,8 @@ const userSlice = createSlice({
 
 export const { setUser, clearUser, setName } = userSlice.actions;
 export default userSlice.reducer;
+
+// Export selector
 export const selectCurrentUser = (state) => {
   return state.user.firstName
     ? state.user

@@ -1,6 +1,10 @@
 import LoginForm from './LoginForm/LoginForm';
 import styles from './Login.module.scss';
 
+/**
+ *
+ * The Login page is a simple container of the LoginForm component
+ */
 const Login = () => {
   return (
     <main className="bg-dark">

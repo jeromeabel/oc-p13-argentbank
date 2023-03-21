@@ -9,9 +9,9 @@
 This project is the n°13 of the [OpenClassrooms Front-End learning path](https://openclassrooms.com/fr/paths/516-developpeur-dapplication-javascript-react). I work at the Remede Agency, a web agency. We are developing a full-stack app for a new bank company, ArgentBank
 
 The backend is provided with a tiny data set of two users. My goals are :
-- build a responsive React App with three pages : home, signup and profile according to previous designs 
-- add an authentication system with Redux
-- document the API with Swagger
+- Build a responsive React App with three pages : home, signup and profile according to previous designs 
+- Add an authentication system with Redux
+- Document the API with Swagger : phase 2 transactions
 
 ## ✨ Interface
 
@@ -65,13 +65,13 @@ You can provide these data to get access to the profile page :
 
 Note that you can also check the "Remember me" checkbox to store your authentification data. If you want to clear those, you need to click on the "Logout" button.
 
-Have a try!
+Have a try Steve !
+
+ℹ️ **Note**: the Accounts part inside the Profile page is not yet implemented. The data displayed are static.
 
 ## 👤 Authors
-
 - Client : [@jeromeabel](https://github.com/jeromeabel)
 - Backend : [OpenClassrooms-Student-Center](https://github.com/OpenClassrooms-Student-Center/Project-10-Bank-API)
 
-## 📝 Licenses
-
-- Client side is [GNU--GPL--3](https://www.gnu.org/licenses/gpl-3.0.fr.html) licensed.
+## 📝 License
+- Client : [GNU--GPL--3](https://www.gnu.org/licenses/gpl-3.0.fr.html)
