@@ -1,8 +1,8 @@
 [![Node](https://img.shields.io/badge/nodejs-333333?logo=nodedotjs)](https://nodejs.org/)
 [![Vite](https://img.shields.io/badge/vite-FFD32B?logo=vite)](https://vitejs.dev/)
 [![React](https://img.shields.io/badge/react-20232A?logo=react)](https://reactjs.org/)
-[![Redux Toolkit](https://img.shields.io/badge/redux-764ABC?logo=redux)](https://redux-toolkit.js.org/)
-[![Swagger](https://img.shields.io/badge/swagger-85EA2D?logo=swagger)](https://swagger.io/)
+[![Redux Toolkit](https://img.shields.io/badge/redux_toolkit-764ABC?logo=redux)](https://redux-toolkit.js.org/)
+[![Swagger](https://img.shields.io/badge/swagger-20232A?logo=swagger)](https://swagger.io/)
 
 # oc-p13-argentbank 👋
 
@@ -23,7 +23,7 @@ To get and build the project you will need to install :
 
 - [NodeJS](https://nodejs.org/)
 - A terminal to run commands. If you don't have one, I would recommend to use [Visual Studio Code](https://code.visualstudio.com/), it provides an integrated terminal inside the code editor.
-- Optional : Pnpm instead of npm
+- Optional : PNPM instead of NPM
 - Optional : [Git](https://git-scm.com/)
 
 ## 🛠️ Installation
@@ -59,11 +59,9 @@ $ pnpm run dev
 
 And open the browser at this address : http://localhost:5173/
 
-You can provide these data to get access to the profile page :
-- Email: `steve@rogers.com`,
-- Password: `password456`
+You can provide these data to get access to the profile page : `steve@rogers.com` / `password456`
 
-Note that you can also check the "Remember me" checkbox to store your authentification data. If you want to clear those, you need to click on the "Logout" button.
+Note that you can also check the "Remember me" checkbox to store your authentication data. If you want to clear those, you need to click on the "Logout" button.
 
 Have a try Steve !
 
