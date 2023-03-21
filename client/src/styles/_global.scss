@@ -77,6 +77,17 @@ footer {
   white-space: nowrap !important; /* 3 */
 }
 
+.error {
+  font-size: 12px;
+  color: red;
+  width: 400px;
+  margin-top: 0.25rem;
+  &:before {
+    content: '❌ ';
+    font-size: 10px;
+  }
+}
+
 .bg-dark {
   background-color: #12002b;
 }
