@@ -5,9 +5,9 @@ import { setName, selectCurrentUser } from '../../../features/userSlice';
 import { useSetUserNameMutation } from '../../../app/apiSlice';
 import { selectCurrentRememberMe } from '../../../features/authSlice';
 
-import styles from './EditName.module.scss';
+import styles from './EditNameForm.module.scss';
 
-const EditName = () => {
+const EditNameForm = () => {
   const dispatch = useDispatch();
   const rememberMe = useSelector(selectCurrentRememberMe);
   const user = useSelector(selectCurrentUser); // début : rien ... après await de Profile : ok ?
@@ -64,6 +64,8 @@ const EditName = () => {
               id="firstName"
               value={firstName}
               onChange={handleChangeInput}
+              pattern="^[A-ÿ]{2,}[A-ÿ\-\s]*$"
+              title="Two or more characters"
             />
             <button type="submit" className={styles.button}>
               Save
@@ -76,6 +78,8 @@ const EditName = () => {
               id="lastName"
               value={lastName}
               onChange={handleChangeInput}
+              pattern="^[A-ÿ]{2,}[A-ÿ\-\s]*$"
+              title="Two or more characters"
             />
             <button
               type="reset"
@@ -91,4 +95,4 @@ const EditName = () => {
   );
 };
 
-export default EditName;
+export default EditNameForm;

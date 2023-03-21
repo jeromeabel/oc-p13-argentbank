@@ -6,7 +6,7 @@ import { setUser, selectCurrentUser } from '../../features/userSlice';
 import { selectCurrentRememberMe } from '../../features/authSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
-import EditName from './EditName/EditName';
+import EditNameForm from './EditNameForm/EditNameForm';
 
 const Profile = () => {
   const [getUser] = useGetUserMutation(); // API : Post récupérer User
@@ -40,7 +40,7 @@ const Profile = () => {
           <br />
           {user?.firstName && `${user.firstName} ${user.lastName}`}
         </h1>
-        <EditName />
+        <EditNameForm />
       </div>
       <Accounts />
     </main>
