@@ -234,7 +234,7 @@ paths:
           description: Invalid ID or invalid Field supplied
         '500':
           description: Transaction not found
-    patch:
+    put:
       security:
         - Bearer: []
       tags:
